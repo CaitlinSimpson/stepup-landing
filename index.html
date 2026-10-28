@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StepUp helps Irish public-sector employees prepare for competency-based promotion interviews.">
+  <title>StepUp | Prepare for Your Next Promotion Interview</title>
+
+  <style>
+    :root {
+      --navy: #101b32;
+      --purple: #6557df;
+      --teal: #19b7a8;
+      --text: #18253e;
+      --muted: #63718b;
+      --light: #f6f7fc;
+      --border: #e5e8f2;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at 80% 35%, #e8e5ff, transparent 40%),
+        radial-gradient(circle at 10% 90%, #e5faf5, transparent 35%),
+        #fff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 850;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--purple);
+      color: white;
+      padding: 15px 23px;
+      border-radius: 13px;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 12px 28px #6557df35;
+      transition: transform .2s;
+    }
+
+    .button:hover { transform: translateY(-3px); }
+
+    .button.small { padding: 11px 17px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding: 95px 0 115px;
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      background: #eeecff;
+      color: #594db8;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: -0.045em;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(45px, 5.5vw, 76px);
+      margin: 20px 0;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--purple);
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      margin: 12px 0 20px;
+    }
+
+    h3 { font-size: 21px; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    .hero-points {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .hero-points span::before {
+      content: "✓ ";
+      color: var(--teal);
+    }
+
+    .dashboard {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 30px 75px #18274425;
+      transform: rotate(-2deg);
+    }
+
+    .dashboard-header {
+      background: var(--navy);
+      color: white;
+      padding: 18px 22px;
+      font-weight: 800;
+    }
+
+    .dashboard-header span { color: #9b90ff; }
+
+    .dashboard-body { padding: 27px; }
+
+    .dashboard-title {
+      font-size: 23px;
+      font-weight: 850;
+      margin: 8px 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .stat {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .stat small { color: var(--muted); }
+
+    .stat strong {
+      display: block;
+      font-size: 29px;
+    }
+
+    .progress {
+      height: 7px;
+      background: #e5e6f0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress div {
+      height: 100%;
+      width: 72%;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .dashboard-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+      padding: 13px 0;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .chip {
+      color: #07836d;
+      background: #e5f8f2;
+      padding: 4px 9px;
+      border-radius: 30px;
+      font-size: 11px;
+    }
+
+    .chip.warning {
+      color: #9a691c;
+      background: #fff0d8;
+    }
+
+    .preview-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    section { padding: 95px 0; }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .dark {
+      background: var(--navy);
+      color: white;
+    }
+
+    .dark p { color: #c5cee1; }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .thought-card {
+      padding: 30px;
+      background: #ffffff12;
+      border: 1px solid #ffffff25;
+      border-radius: 24px;
+    }
+
+    .thought {
+      padding: 20px;
+      background: #ffffff15;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .answer {
+      background: white;
+      color: var(--text);
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    .answer strong { color: var(--purple); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      padding: 28px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: #eeecff;
+      color: var(--purple);
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .available {
+      display: inline-block;
+      background: #e8f9f3;
+      color: #087c69;
+      padding: 5px 11px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .soft { background: #f1f2fa; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .number {
+      display: inline-block;
+      background: #eeecff;
+      color: var(--purple);
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-weight: 850;
+    }
+
+    .step p { color: var(--muted); font-size: 14px; }
+
+    .star-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .star-box {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .star-box strong {
+      display: block;
+      color: var(--purple);
+    }
+
+    .star-box p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .feedback {
+      background: #eeecff;
+      border-radius: 14px;
+      padding: 17px;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .research {
+      background: #f5f4ff;
+      border-top: 1px solid var(--border);
+    }
+
+    .research-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .research-links a {
+      color: #5144c7;
+      font-weight: 750;
+      text-underline-offset: 4px;
+    }
+
+    .requirements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .requirement {
+      padding: 16px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      font-size: 14px;
+    }
+
+    .requirement::before {
+      content: "✓ ";
+      color: var(--teal);
+      font-weight: 850;
+    }
+
+    .cta {
+      background:
+        radial-gradient(circle at 15% 90%, #5a4bc6, transparent 40%),
+        var(--navy);
+      text-align: center;
+      color: white;
+    }
+
+    .cta p { color: #c5cee1; }
+
+    .cta .button {
+      background: white;
+      color: var(--purple);
+    }
+
+    footer {
+      background: #0b152b;
+      color: #b5bfd3;
+      padding: 28px 0;
+      font-size: 12px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .grid { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .nav-links a:not(.button) { display: none; }
+    }
+
+    @media (max-width: 580px) {
+      .hero { padding: 55px 0 75px; }
+      section { padding: 65px 0; }
+      .grid, .steps, .requirements {
+        grid-template-columns: 1fr;
+      }
+      .dashboard { transform: none; }
+      .nav-links .button { padding: 10px; font-size: 12px; }
+      .two-columns { gap: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#">↗ Step<span>Up</span></a>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#research">Research</a>
+        <a class="button small demo-link" href="#">
+          Try the demo ↗
+        </a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <span class="pill">For Irish public-sector employees</span>
+
+        <h1>
+          Your experience deserves a
+          <em>stronger interview answer.</em>
+        </h1>
+
+        <p class="lead">
+          You've done the work. Now get ready to explain it.
+          StepUp helps you turn real achievements into clear
+          competency examples for your next internal
+          promotion interview.
+        </p>
+
+        <a class="button demo-link" href="#">
+          Try the StepUp Demo ↗
+        </a>
+
+        <div class="hero-points">
+          <span>No account needed</span>
+          <span>Guided STAR answers</span>
+          <span>Practice and retry</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="dashboard">
+          <div class="dashboard-header">
+            Step<span>Up</span> / Your workspace
+          </div>
+
+          <div class="dashboard-body">
+            <div class="eyebrow">Promotion preparation</div>
+
+            <div class="dashboard-title">
+              You're building your case.
+            </div>
+
+            <p style="font-size:12px;color:#75829a">
+              Illustrative dashboard — fictional sample data
+            </p>
+
+            <div class="stats">
+              <div class="stat">
+                <small>Sample achievements</small>
+                <strong>10</strong>
+                <div class="progress"><div></div></div>
+              </div>
+
+              <div class="stat">
+                <small>Answer structure</small>
+                <strong>STAR</strong>
+                <div class="progress"><div></div></div>
+              </div>
+            </div>
+
+            <div class="dashboard-row">
+              <span>Communication</span>
+              <span class="chip">Evidence mapped</span>
+            </div>
+
+            <div class="dashboard-row">
+              <span>Delivering results</span>
+              <span class="chip">Evidence mapped</span>
+            </div>
+
+            <div class="dashboard-row">
+              <span>Strategic thinking</span>
+              <span class="chip warning">Evidence gap</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-note">
+          Illustrative interface — not a live user result
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="dark">
+  <div class="container two-columns">
+    <div>
+      <div class="eyebrow" style="color:#aea4ff">
+        Sound familiar?
+      </div>
+
+      <h2>
+        You've got the experience.
+        Finding the right words is harder.
+      </h2>
+
+      <p>
+        When an internal promotion interview is approaching,
+        it can be difficult to remember your strongest examples,
+        match them to competencies and explain exactly what
+        you contributed.
+      </p>
+
+      <p>
+        StepUp gives that preparation a place to start,
+        without expecting you to build everything
+        from a blank page.
+      </p>
+    </div>
+
+    <div class="thought-card">
+      <div class="eyebrow" style="color:#aea4ff">
+        Before: the thought
+      </div>
+
+      <div class="thought">
+        "I know I've done lots of relevant work,
+        but which example should I use?"
+      </div>
+
+      <div class="answer">
+        <strong>After: a clearer structure</strong>
+        <p>
+          <b>Situation:</b> What was happening?<br>
+          <b>Task:</b> What were you responsible for?<br>
+          <b>Action:</b> What did you personally do?<br>
+          <b>Result:</b> What changed?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Made for the way you prepare</span>
+
+      <h2>
+        Everything starts with the work
+        you've already done.
+      </h2>
+
+      <p>
+        Practical tools to help you find relevant examples,
+        organise your thinking and rehearse
+        with more confidence.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">◎</div>
+        <h3>Start with your target role</h3>
+        <p>
+          Add the competencies and capabilities relevant
+          to the promotion you're preparing for.
+        </p>
+        <span class="available">Available in the demo</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">▤</div>
+        <h3>Build your evidence bank</h3>
+        <p>
+          Record, edit and save your achievements
+          in one organised workspace.
+        </p>
+        <span class="available">Available in the demo</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">◫</div>
+        <h3>Spot evidence gaps</h3>
+        <p>
+          Map achievements to competencies and identify
+          where supporting examples are missing.
+        </p>
+        <span class="available">Automatic in the demo</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">✦</div>
+        <h3>Build STAR answers</h3>
+        <p>
+          Use guided Situation, Task, Action and Result
+          fields to structure your experience.
+        </p>
+        <span class="available">Available in the demo</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">◉</div>
+        <h3>Practise and improve</h3>
+        <p>
+          Answer interview questions, receive rule-based
+          feedback and try again.
+        </p>
+        <span class="available">Available in the demo</span>
+      </div>
+
+      <div class="card">
+        <div class="icon">↗</div>
+        <h3>Prepare at your pace</h3>
+        <p>
+          Use StepUp on a phone or computer.
+          Records save in the current browser.
+        </p>
+        <span class="available">Available in the demo</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="how-it-works">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">A clearer path forward</span>
+
+      <h2>
+        From "Where do I start?"
+        to "I have an example."
+      </h2>
+
+      <p>
+        A simple preparation journey built
+        around your own experience.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="number">01</span>
+        <h3>Choose the role</h3>
+        <p>
+          Identify the competencies you need
+          to demonstrate.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="number">02</span>
+        <h3>Collect your achievements</h3>
+        <p>
+          Record examples of your work and
+          map them to requirements.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="number">03</span>
+        <h3>Build your STAR answer</h3>
+        <p>
+          Explain what you personally did
+          and what changed.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="number">04</span>
+        <h3>Practise again</h3>
+        <p>
+          Review feedback, refine your
+          response and retry.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container two-columns">
+    <div>
+      <span class="eyebrow">Make your contribution clear</span>
+
+      <h2>
+        Less staring at a blank page.
+        More answers you can practise.
+      </h2>
+
+      <p style="color:var(--muted)">
+        The STAR builder helps you organise work examples
+        into four manageable parts. Interview practice
+        provides suggestions for improving your answer.
+      </p>
+
+      <p style="color:var(--muted)">
+        StepUp is a preparation aid. Its feedback is
+        rule-based, not AI scoring, and it cannot
+        predict interview results.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">STAR builder preview</div>
+
+      <div class="star-grid">
+        <div class="star-box">
+          <strong>S — Situation</strong>
+          <p>Set the scene and explain the challenge.</p>
+        </div>
+
+        <div class="star-box">
+          <strong>T — Task</strong>
+          <p>What were you responsible for?</p>
+        </div>
+
+        <div class="star-box">
+          <strong>A — Action</strong>
+          <p>What steps did you personally take?</p>
+        </div>
+
+        <div class="star-box">
+          <strong>R — Result</strong>
+          <p>What changed because of your actions?</p>
+        </div>
+      </div>
+
+      <div class="feedback">
+        <strong>Example feedback</strong>
+        <p>
+          Make your contribution more explicit.
+          Add the decisions you made and
+          the reasons behind them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="problem">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">The problem behind StepUp</span>
+      <h2>Built around a specific preparation challenge.</h2>
+
+      <p>
+        StepUp is designed for Irish public-sector
+        employees preparing for internal promotion
+        through competency-based recruitment.
+      </p>
+    </div>
+
+    <div class="two-columns">
+      <div>
+        <h3>Who would use it?</h3>
+        <p>
+          Individual employees preparing for promotion
+          interviews. They may use the tool independently.
+        </p>
+
+        <h3>Who might pay?</h3>
+        <p>
+          Individual users could pay for optional premium
+          features. Organisations may also consider
+          providing access through their Learning
+          and Development departments.
+          Both are proposed business models,
+          not established arrangements.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>The problem, in their words</h3>
+        <p>
+          "I have years of experience, but I struggle
+          to identify my strongest examples and
+          explain how they meet the competencies
+          for the next grade."
+        </p>
+        <p style="font-size:12px">
+          Illustrative customer statement, not a
+          verified interview quotation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">What the solution must do</span>
+      <h2>Six practical requirements.</h2>
+
+      <p>
+        These requirements come from the problem
+        identified in the project research.
+      </p>
+    </div>
+
+    <div class="requirements">
+      <div class="requirement">
+        Enter target-role competencies and capabilities.
+      </div>
+      <div class="requirement">
+        Record, edit and save achievements.
+      </div>
+      <div class="requirement">
+        Map achievements and highlight evidence gaps.
+      </div>
+      <div class="requirement">
+        Structure answers using the STAR method.
+      </div>
+      <div class="requirement">
+        Practise questions, receive feedback and retry.
+      </div>
+      <div class="requirement">
+        Work on a phone and retain records after refresh.
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);margin-top:25px">
+      The demo illustrates these requirements using
+      fictional sample achievements and browser-based storage.
+    </p>
+  </div>
+</section>
+
+<section class="soft" id="solution">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">The proposed solution</span>
+      <h2>An evidence planner and interview practice website.</h2>
+
+      <p>
+        StepUp combines role requirements,
+        achievement records, evidence mapping,
+        STAR preparation and interview practice.
+      </p>
+    </div>
+
+    <div class="steps" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+      <div class="step">
+        <span class="number">01</span>
+        <h3>Enter your target role</h3>
+        <p>
+          Select or add the competencies required
+          for the role.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="number">02</span>
+        <h3>Organise your evidence</h3>
+        <p>
+          Save achievements, map them to
+          competencies and prepare STAR answers.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="number">03</span>
+        <h3>Practise and improve</h3>
+        <p>
+          Answer questions, review feedback
+          and attempt the answer again.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Research and alternatives</span>
+      <h2>How people prepare today.</h2>
+
+      <p>
+        Candidates commonly review job descriptions
+        and competency frameworks, prepare STAR examples
+        and practise with friends or family.
+      </p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="card">
+        <h3>Publicjobs.ie</h3>
+        <p>
+          A source of competency-model information
+          relevant to public-sector interview preparation.
+        </p>
+        <p>Source checked: 26 October 2026.</p>
+
+        <a href="https://www.publicjobs.ie/documents/PAS_CS_Competency_Models_2017.pdf"
+           target="_blank" rel="noopener">
+          View source ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>STARmethod.ie</h3>
+        <p>
+          An existing service offering STAR-based
+          interview practice tools.
+        </p>
+        <p>Source checked: 26 October 2026.</p>
+
+        <a href="https://starmethod.ie/practice/"
+           target="_blank" rel="noopener">
+          View source ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>StepUp's proposed difference</h3>
+        <p>
+          StepUp brings achievement recording,
+          competency mapping, evidence-gap identification,
+          STAR preparation and interview practice
+          into one preparation journey.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="business">
+  <div class="container two-columns">
+    <div>
+      <span class="eyebrow">Business model</span>
+
+      <h2>How StepUp could be sustained.</h2>
+
+      <p>
+        The proposed approach is freemium:
+        basic evidence planning and STAR preparation
+        could remain free, with optional paid
+        features in a future version.
+      </p>
+
+      <p>
+        An initial pricing assumption is
+        <strong>€5 per month</strong> for a premium
+        subscription. This is not a validated
+        market price or an active subscription.
+      </p>
+
+      <p>
+        Organisational access through Learning and
+        Development departments is another possibility.
+        Hosting, maintenance and any future AI services
+        would create ongoing costs.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Current prototype versus future plans</h3>
+
+      <p>
+        <strong>Available now:</strong> evidence bank,
+        competency mapping, STAR builder,
+        interview practice, rule-based feedback
+        and browser-local saving.
+      </p>
+
+      <p>
+        <strong>Planned only:</strong> presentation
+        preparation, subscriptions, organisational
+        accounts, AI-powered feedback and automatic
+        cross-device synchronisation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">A transparent prototype</span>
+      <h2>Clear about what works.</h2>
+      <p>
+        StepUp is a student-built prototype,
+        not an established recruitment service.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Fictional sample data</h3>
+        <p>
+          The demo starts with 10 fictional
+          achievements to demonstrate the tools.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Rule-based feedback</h3>
+        <p>
+          Feedback is based on text checks
+          and structure, not AI evaluation
+          or interview predictions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Browser-based saving</h3>
+        <p>
+          Records are saved in the current browser.
+          There is no automatic synchronisation
+          between your phone and laptop.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="research">
+  <div class="container">
+    <span class="eyebrow">Behind the project</span>
+
+    <h2>Curious about the thinking behind StepUp?</h2>
+
+    <p style="max-width:750px;color:var(--muted)">
+      I developed StepUp around the challenges of
+      competency-based promotion preparation.
+      My project notes explain the customer problem,
+      requirements, existing alternatives, proposed
+      business model and design decisions.
+    </p>
+
+    <div class="research-links">
+      <a href="project-notes.html">
+        Read my full Area 1 &amp; 2 project notes ↗
+      </a>
+
+      <a href="stepup_project_background_research_personal.pdf"
+         target="_blank" rel="noopener">
+        Read the short PDF overview ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container" style="max-width:760px">
+    <span class="eyebrow" style="color:#aea4ff">
+      Your next step
+    </span>
+
+    <h2>Walk into your next interview better prepared.</h2>
+
+    <p>
+      Explore the evidence bank, choose a competency
+      and try shaping an answer using STAR.
+    </p>
+
+    <a class="button demo-link" href="#">
+      Try the StepUp Demo ↗
+    </a>
+
+    <p style="font-size:12px;margin-top:18px">
+      Free student prototype. No sign-up required.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <strong>StepUp</strong> — Student project for
+      Irish public-sector interview preparation.
+    </div>
+
+    <div>
+      Not affiliated with any public-sector recruitment body.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // The demo is published in a separate GitHub repository.
+  // This link works when the repositories are named:
+  // stepup-landing and stepup-demo.
+
+  const DEMO_URL =
+    "https://CaitlinSimpson.github.io/stepup-demo/";
+
+  document.querySelectorAll(".demo-link").forEach(link => {
+    link.href = DEMO_URL;
+  });
+</script>
+
+</body>
+</html>
